@@ -1,0 +1,181 @@
+ion-toolbar.header {
+    --background: #2c110d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    transition: top 0.3s ease;
+    z-index: 1000;
+  }
+  html, body, ion-app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  ion-content.content {
+    min-height: 100vh; /* يجعل المحتوى يمتد لملء الشاشة */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-relative {
+    //position: relative; /* يسمح للفوتر بالبقاء في أسفل الصفحة فقط */
+    width: 100%;
+    --background: #000000 ;
+    //margin-top: auto; /* يدفع الفوتر للأسفل عندما يكون المحتوى قصير */
+  }
+
+  .footer-content {
+    text-align: center;
+    color: rgb(205, 205, 205);
+  }
+
+  .footer-text p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .footer-icons {
+    color: rgb(205, 205, 205);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .footer-icons ion-icon {
+    color: rgb(205, 205, 205);
+    font-size: 20px;
+    margin: 0 5px;
+  }
+
+  .footer-license p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+    ion-content {
+    --ion-background-color: #afada5be !important;
+   //--ion-background-color: #dcd0a397 !important;
+    padding-top: 130px;
+  }
+  
+  .custom {
+    --background: #bebab893 ;
+    --color: #201f1f;
+    --border-radius: 15px;
+    left: 80px;
+    width: 240px;
+    height: auto;
+    top: 10px;
+    padding-top: 8px;
+    
+  }
+  /* تخصيص الـ cancel button (الزر الذي يظهر عند التركيز) */
+  .custom .cancel-button {
+    color: #ffffff; /* تغيير لون النص في زر الـ cancel */
+  }
+  
+  /* تخصيص النص داخل الـ placeholder */
+  .custom input {
+    color: #ffffff; /* تغيير النص داخل الـ placeholder */
+  }
+  
+  /* تخصيص الـ search icon */
+  .custom .search-icon {
+    color: #262626; /* تغيير لون الأيقونة */
+  }
+  img { //logo
+    position: absolute;
+    left: 350px;
+    top: 15px;  
+height: 40px;
+    object-fit: cover; /* لضمان أن الصورة تغطي المساحة بشكل جيد */
+  }
+  
+  ion-card {
+    //background-color:#bcb4aeab !important;
+    background-color:#ece9e7a4 !important;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 450px;
+    max-width: 85%;
+    overflow: hidden;
+    margin: 20px auto;
+    padding: 0; 
+  }
+  
+  ion-card:first-of-type {
+    margin-top: 100px;
+  }
+  
+  ion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  ion-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  ion-card-title {
+    align-self: center;
+    font-size: 23px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  ion-card-subtitle.artist {
+    color: #252525f3;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  ion-card-subtitle.date {
+    font-size: 12px;
+    color: #252525f3;
+  }
+  
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .like-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    //margin-top: 10px;
+  }
+  
+  .like-icon {
+    font-size: 27px;
+    color: #630a07;
+    margin-left: 10px;
+  }
+  
+  .num {
+    margin-left: 10px;
+  }
+  
+  ion-button {
+    --background: #232121 !important;
+    --color: rgb(255, 255, 255);
+    --border-radius: 12px;
+    width: 60%;
+    height: 60px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    align-self: center;
+  }
+  

@@ -1,0 +1,221 @@
+ion-toolbar.header {
+  --background: #2c110d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  transition: top 0.3s ease;
+  z-index: 1000;
+}
+
+ion-button.back-button {
+  --background: transparent;
+  --color: white;
+  font-size: 23px;
+}
+ion-icon {
+  font-size: 30px; /* تغيير الحجم */
+  color: #ffffff; /* تغيير اللون */
+  padding-bottom: 10px;
+}
+
+img { //logo
+  position: absolute;
+  left: 350px;
+  top: 15px;  
+height: 40px;
+ // object-fit: cover; /* لضمان أن الصورة تغطي المساحة بشكل جيد */
+}
+
+
+/* ======== صفحة المحتوى ========== */
+ion-content {
+  --ion-background-color: #afada5be !important;
+  padding-top: 130px;
+}
+
+/* ======== الكارد الرئيسي ========== */
+ion-card {
+ 
+  background-color:#ece9e7;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 95%;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  position: relative;
+  margin-top: 100px;
+}
+
+/* ضبط الصورة بحيث تكون داخل الكارد بالكامل */
+ion-img {
+  width: 100%;
+  height: auto; /* يمكنك تعديل الارتفاع حسب الحاجة */
+  object-fit: cover; /* جعل الصورة تتناسب داخل الإطار */
+ 
+}
+ion-card-title{
+ 
+  margin-bottom: 10px;
+  font-size: 30px;
+  color:#140c0c;
+  transform: translateY(25px);
+
+}
+h2.reviews-title{
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color:#140c0c;
+
+  
+}
+.date{
+  font-size: 19px; /* تعديل حجم النص للمحتوى */
+  color: #333; 
+}
+
+ion-card-content p {
+  font-size: 16px; /* تعديل حجم النص للمحتوى */
+  color: #333; /* تغيير اللون إذا أردت */
+  line-height: 1.5; /* جعل المسافة بين الأسطر أكبر */
+}
+
+.like-section {
+  display: flex;
+  justify-content: flex-end; /* جعل المحتوى يتوزع نحو اليمين */
+  align-items: center;
+  width: 100%;
+  position: absolute;  /* تعيينه كعنصر ثابت */
+  top: 10px; /* وضعه فوق التاريخ بشكل ملائم */
+  right: 15px; /* مسافة عن الحافة اليمنى */
+  background-color: transparent;
+}
+
+.like-icon {
+  font-size: 27px;
+  color: #630a07;
+  margin-right: 5px; /* مسافة بين الأيقونة وعدد اللايك */
+}
+
+.num {
+  font-size: 14px;
+  color: #573d3c;
+}
+.date_painting{
+  font-size: 27px;
+  color: #630a07;
+}
+
+
+/* ======== قسم التعليقات ========== */
+.comments-section {
+  //padding: 15px;
+  //margin-bottom: 20px;
+  background: transparent !important; /* إزالة الخلفية الصلبة */
+}
+
+.comment {
+  background: #f5f2f2c5;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #2c110d;
+  
+}
+
+
+.comment-header strong {
+  font-size: 16px;
+}
+
+.comment-time {
+  color: #777;
+  font-size: 12px;
+}
+
+.comment-body {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ======== رابط عرض كل التعليقات ========== */
+.comments-header {
+  color: #23479b;
+  text-align: right;
+  text-decoration: underline;
+  margin-top: -5px; /* تقريب النص الأزرق للتعليقات */
+}
+
+
+/* ======== زر إضافة تعليق ========== */
+ion-button.add-comment {
+  --background: #141313 !important;
+  --color: rgb(255, 255, 255);
+  --border-radius: 12px;
+  width: 60%;
+  height: 60px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  align-self: center;
+}
+/* ======== كارد إضافة التعليق ========== */
+.add-review-card {
+  margin-top: 450px; /* مسافة بين كارد إضافة التعليق وكارد عرض جميع التعليقات */
+  position: fixed;
+  top: -90px; /* رفع الكارد فوق الكارد الأول */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  background: rgba($color: #ada6a6, $alpha: 1.0); /* خلفية أبيض غامق */
+  opacity: 1; /* عدم الشفافية */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل داكن */
+  z-index: 200; /* تأكد من أن الكارد فوق كل العناصر */
+  padding: 20px; /* إضافة مسافة داخلية للكارد */
+  height: auto; /* جعل ارتفاع الكارد تلقائي */
+}
+
+/* زر الإغلاق */
+.close-button {
+  padding: 0; /* إزالة المسافات داخل الزر */
+  position: absolute;
+//top:0px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgb(0, 0, 0); /* لون زر الإغلاق أبيض */
+}
+
+/* نص داخل كارد إضافة التعليق */
+.add-review-card ion-card-title,
+.add-review-card ion-label,
+.add-review-card ion-textarea,
+.add-review-card ion-input {
+  color: white; /* تغيير لون النص إلى أبيض */
+}
+
+/* زر إرسال مراجعة */
+.add-review-card ion-button {
+  --background: #000; /* لون خلفية الزر أسود */
+  --color: white; /* لون النص داخل الزر أبيض */
+  margin-top: 20px; /* إضافة مسافة بين الحقول والزر */
+}

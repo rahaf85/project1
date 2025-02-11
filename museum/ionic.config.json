@@ -1,0 +1,7 @@
+{
+  "name": "museum",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
