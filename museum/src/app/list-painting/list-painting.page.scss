@@ -15,17 +15,16 @@ ion-toolbar.header {
   }
 
   ion-content.content {
-    min-height: 100vh; /* يجعل المحتوى يمتد لملء الشاشة */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
   .footer-relative {
-    //position: relative; /* يسمح للفوتر بالبقاء في أسفل الصفحة فقط */
-    
+
+    width: 100%;
     padding: 8px 0;
     --background: #191818f2 ;
-    //margin-top: auto; /* يدفع الفوتر للأسفل عندما يكون المحتوى قصير */
   }
 
   .footer-content {
@@ -57,7 +56,7 @@ ion-toolbar.header {
     ion-content {
       flex:1;
     --ion-background-color: #afada5be !important;
-   //--ion-background-color: #dcd0a397 !important;
+
     padding-top: 130px;
   }
   
@@ -72,30 +71,29 @@ ion-toolbar.header {
     padding-top: 8px;
     
   }
-  /* تخصيص الـ cancel button (الزر الذي يظهر عند التركيز) */
+
   .custom .cancel-button {
-    color: #ffffff; /* تغيير لون النص في زر الـ cancel */
+    color: #ffffff;
   }
-  
-  /* تخصيص النص داخل الـ placeholder */
+
   .custom input {
-    color: #ffffff; /* تغيير النص داخل الـ placeholder */
+    color: #ffffff; 
   }
   
-  /* تخصيص الـ search icon */
+
   .custom .search-icon {
-    color: #262626; /* تغيير لون الأيقونة */
+    color: #262626; 
   }
-  img { //logo
+  img { 
     position: absolute;
     left: 350px;
     top: 15px;  
 height: 40px;
-    object-fit: cover; /* لضمان أن الصورة تغطي المساحة بشكل جيد */
+    object-fit: cover; 
   }
   
   ion-card {
-    //background-color:#bcb4aeab !important;
+
     background-color:#ece9e7a4 !important;
     display: flex;
     flex-direction: column;
@@ -156,7 +154,7 @@ height: 40px;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    //margin-top: 10px;
+
   }
   
   .like-icon {
