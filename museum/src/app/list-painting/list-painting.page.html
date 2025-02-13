@@ -19,7 +19,7 @@
         [name]="painting.isLiked ? 'heart' : 'heart-outline'" 
         class="like-icon"  
         [style.color]="painting.isLiked ? 'red' : 'black'" 
-        (click)="toggleLike(painting.objectID)">
+        (click)="toggleLike(painting)">
       </ion-icon>
       
         <ion-card-subtitle class="num">{{ painting.like }} Like</ion-card-subtitle> 
@@ -27,9 +27,8 @@
       <ion-button (click)="goToDetails(painting.objectID)" size="small">More Details</ion-button>
     </ion-card-header>
   </ion-card>
-</ion-content>
 
-<ion-footer >
+
   <ion-toolbar class="footer-relative">
     <ion-grid>
       <ion-row class="footer-content">
@@ -49,24 +48,5 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
-</ion-footer>
 
-<!-- <ion-content>
- @for (painting of allPainting ; track painting.objectID){
-    <ion-card color="light">
-      <ion-img src={{painting.image}}></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{painting.title}}</ion-card-title> 
-        <div class="author-info">
-          <ion-card-subtitle class="artist">by {{painting.artistName}}</ion-card-subtitle>  
-          <ion-card-subtitle  class="date">{{painting.date}}</ion-card-subtitle> 
-        </div>
-        <div class="like-section">
-          <ion-icon name="heart-outline" class="like-icon"></ion-icon>
-          <ion-card-subtitle class="num">{{painting.like}} Like</ion-card-subtitle> 
-        </div>
-        <ion-button (click)="goToDetails(painting.objectID)" size="small" >More Details</ion-button>
-      </ion-card-header>
-    </ion-card>
-  }
-</ion-content>-->
+</ion-content>

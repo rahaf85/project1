@@ -1,30 +1,4 @@
-<!-- <ion-header>
-  <ion-toolbar class="header">
-    <ion-button slot="start" class="back-button" routerLink="/list-painting">
-      <ion-icon name="arrow-back-outline"></ion-icon>
-    </ion-button>
-    <img src="assets/icon/logo2.png" class="img-style" alt="Logo" />
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-img src="paintingDetails.primaryImage" ></ion-img>
-    <ion-card-header>
-      <ion-card-title>{{ paintingDetails.title }}</ion-card-title>
-      <ion-card-subtitle>{{ paintingDetails.objectDate }}</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p><strong>Artist:</strong> {{ paintingDetails.artistDisplayName }}</p>
-      <p><strong>Material:</strong> Carved, painted and gilded oak</p>
-      <p><strong>Dimensions:</strong> H: 783.6 cm, W: 575.3 cm, D: 579.1 cm</p>
-      
-   
-      <ion-button expand="full" class="add-comment">Add Comment</ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-content>-->
 <ion-header>
   <ion-toolbar class="header">
     <ion-button slot="start" class="back-button" routerLink="/list-painting">
@@ -35,16 +9,16 @@
 </ion-header>
 
 <ion-content>
-  <!-- كارد المعلومات الأساسية -->
+ 
   <ion-card *ngIf="paintingDetails">
     <ion-img [src]="paintingDetails.primaryImage" alt="Artwork Image"></ion-img>
     <ion-card-header>
-      <div class="like-section">
-        <ion-icon name="heart-outline" class="like-icon"></ion-icon>
-        <ion-card-subtitle class="num">44 Like</ion-card-subtitle> 
-      </div>
+     
+     
+      
+      
       <ion-card-title>{{ paintingDetails.title }}</ion-card-title>
-      <ion-card-subtitle>{{ paintingDetails.objectDate }}</ion-card-subtitle>
+      <ion-card-subtitle class="date-num">{{ paintingDetails.objectDate }}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
@@ -52,9 +26,8 @@
       <p><strong>Material:</strong> {{ paintingDetails.medium }}</p>
       <p><strong>Dimensions:</strong>{{ paintingDetails.dimensions }}</p>
       
-      <h2 class="reviews-title">Reviews</h2>
+      <h2 class="reviews-title">Reviews  ({{ comments.length }})</h2>
 
-      <!-- عرض التعليقات المختصرة -->
       <div class="comments-section">
         <div *ngFor="let comment of displayComments" class="comment">
           <div *ngIf="comment.comment?.trim() && comment.username?.trim() && comment.creation_date">
@@ -69,41 +42,34 @@
         </div>
       </div>
 
-      <!-- زر عرض جميع التعليقات -->
       <div class="comments-header" *ngIf="comments.length > 3">
         <ion-label class="view-all-comments" (click)="toggleComments()">
           {{ showAllComments ? 'Show Less' : 'View All Comments' }}
         </ion-label>
       </div>
 
-      <!-- زر إضافة تعليق -->
-      <ion-button expand="full" class="add-comment" (click)="showReviewForm = true">Add Comment</ion-button>
+      <ion-spinner *ngIf="!paintingDetails" name="crescent"></ion-spinner>
+      <p *ngIf="!paintingDetails" class="loading-message">Loading painting details...</p>
     </ion-card-content>
+    <ion-button name="create-outline" class="add-comment" (click)="openReviewForm()" > Add Review</ion-button>
   </ion-card>
 
-  <!-- في حالة عدم تحميل البيانات -->
-  <ion-spinner *ngIf="!paintingDetails" name="crescent"></ion-spinner>
-  <p *ngIf="!paintingDetails" class="loading-message">Loading painting details...</p>
-
-  <!-- كارد إضافة التعليق -->
-   
   <ion-card *ngIf="showReviewForm" class="add-review-card">
     <ion-card-header>
-      <ion-card-title  class="write-review">Write a Review</ion-card-title>
-      
-        <ion-icon class="close-button"  name="close-outline"></ion-icon>
-      
+      <ion-card-title class="write-review">Write a Review</ion-card-title>
+      <button class="close-button" (click)="showReviewForm = false">&times;</button>
     </ion-card-header>
+    
     <ion-card-content>
+      <h3>Name</h3>
       <ion-item>
-        <ion-label position="stacked">Name</ion-label>
         <ion-input [(ngModel)]="reviewName" placeholder="Write here"></ion-input>
       </ion-item>
+      <h3>Review</h3>
       <ion-item>
-        <ion-label position="stacked">Review</ion-label>
         <ion-textarea [(ngModel)]="reviewText" placeholder="Write here"></ion-textarea>
       </ion-item>
       <ion-button expand="full" (click)="addReview()">Submit</ion-button>
     </ion-card-content>
   </ion-card>
-</ion-content>
+  

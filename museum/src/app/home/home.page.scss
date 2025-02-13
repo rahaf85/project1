@@ -1,29 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@700&family=Lora:wght@400&family=Roboto+Slab:wght@400&family=Montserrat:wght@600&family=Poppins:wght@600&display=swap');
 
-/* تحسين صورة الشعار */
 img {
     position: absolute;
     top: 50px; 
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;  /* تصغير حجم الشعار */
+    width: 40px; 
    border-radius: 40%;
    box-shadow: 0 9px 14px rgba(0, 0, 0, 0.692); 
 }
 
-/* تحسين الخلفية بإضافة تأثير التظليل */
+
 ion-content {
     --background: url('/assets/icon/bg7.jpg') center/cover no-repeat;
     position: relative;
-   // backdrop-filter: blur(20px);
+ 
 }
 
-/* تحسين كارد المحتوى */
 ion-card {
-   // background-color: rgba(0, 0, 0, 0.751);
    background-color: #201f1ece;
     border-radius: 10px;
-    //margin-top: 350px;
     margin-top: 500px;
     margin-left: 4.5%;
     margin-right: 4.5%;
@@ -32,7 +28,7 @@ ion-card {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* تحسين عنوان الكارد */
+
 p.title {
     font-size: 34px;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
@@ -44,7 +40,6 @@ p.title {
     line-height: 1.3;
 }
 
-/* تحسين النص الفرعي */
 p.subtitle {
     font-family: 'Roboto Slab', serif;
     font-size: 17px;
@@ -70,12 +65,12 @@ ion-button {
   --color: rgb(20, 18, 18);
   --border-radius: 25px;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  --ripple-color: rgba(0, 0, 0, 0.5); /* هنا يتم تحديد اللون الأسود للتأثير */
+  --ripple-color: rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
 }
 
 ion-button:active {
-  --background: linear-gradient(135deg, #670505, #701515);
+  --background: linear-gradient(135deg, #6d5252, #701515);
   --color: rgb(0, 0, 0);
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   transform: scale(0.98);

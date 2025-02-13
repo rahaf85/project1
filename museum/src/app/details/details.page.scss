@@ -84,28 +84,19 @@ ion-card-content p {
   color: #333; /* تغيير اللون إذا أردت */
   line-height: 1.5; /* جعل المسافة بين الأسطر أكبر */
 }
-
-.like-section {
-  display: flex;
-  justify-content: flex-end; /* جعل المحتوى يتوزع نحو اليمين */
-  align-items: center;
-  width: 100%;
-  position: absolute;  /* تعيينه كعنصر ثابت */
-  top: 10px; /* وضعه فوق التاريخ بشكل ملائم */
-  right: 15px; /* مسافة عن الحافة اليمنى */
-  background-color: transparent;
+.comment-button {
+  position: fixed; /* تثبيت الزر على الشاشة بالكامل */
+  bottom: 20px; /* مسافة من الأسفل */
+  right: 15px; /* محاذاته لليمين */
+  z-index: 1000; /* ضمان عدم تغطيته بعناصر أخرى */
 }
 
-.like-icon {
-  font-size: 27px;
-  color: #630a07;
-  margin-right: 5px; /* مسافة بين الأيقونة وعدد اللايك */
+
+.custom-button:hover {
+  transform: scale(1.05);
+  --box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.num {
-  font-size: 14px;
-  color: #573d3c;
-}
 .date_painting{
   font-size: 27px;
   color: #630a07;
@@ -161,36 +152,72 @@ ion-card-content p {
   margin-top: -5px; /* تقريب النص الأزرق للتعليقات */
 }
 
-
-/* ======== زر إضافة تعليق ========== */
-ion-button.add-comment {
-  --background: #141313 !important;
-  --color: rgb(255, 255, 255);
-  --border-radius: 12px;
-  width: 60%;
-  height: 60px;
-  margin: 10px auto;
-  padding: 10px;
-  font-size: 16px;
-  align-self: center;
+.add-comment {
+  --background: #000;
+  padding: 5px 10px;
+  font-size: 16px; 
+  height: auto;
+  font-size: 20px;
+  color: #F5E1DA;
+  padding: 5px 10px; 
+  font-size: 12px; 
+  width: 250px; 
+  display: block; 
+  margin: 0 auto; 
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+
+add-comment:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(255, 224, 200, 0.4); /* تأثير ظل فاتح عند التحويم */
+}
+.write-review{
+ bottom: 30px;
+ color: #000000;
+}
+
+
 /* ======== كارد إضافة التعليق ========== */
 .add-review-card {
   margin-top: 450px; /* مسافة بين كارد إضافة التعليق وكارد عرض جميع التعليقات */
   position: fixed;
-  top: -90px; /* رفع الكارد فوق الكارد الأول */
+  top: -50px; /* رفع الكارد فوق الكارد الأول */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 500px;
-  background: rgba($color: #ada6a6, $alpha: 1.0); /* خلفية أبيض غامق */
+  background: rgba($color: #e3d9d9c4, $alpha: 1.0); /* خلفية أبيض غامق */
   opacity: 1; /* عدم الشفافية */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل داكن */
+  box-shadow: 0 4px 8px rgba(46, 45, 45, 0.005); /* إضافة ظل داكن */
   z-index: 200; /* تأكد من أن الكارد فوق كل العناصر */
   padding: 20px; /* إضافة مسافة داخلية للكارد */
   height: auto; /* جعل ارتفاع الكارد تلقائي */
 }
+
+ion-card-title {
+  font-size: 24px; /* تكبير الخط */
+  font-weight: bold; /* جعل الخط عريض */
+  margin-bottom: 10px; /* إضافة مسافة بين العنوان وحقل الإدخال */
+  color: #000000; /* لون داكن للعناوين */
+}
+.add-review-card h3 {
+  font-size: 20px; /* تكبير الخط */
+  font-weight: bold; /* جعل الخط عريض */
+  margin-bottom: 10px; /* إضافة مسافة بين العنوان وحقل الإدخال */
+  color: #000000; /* لون داكن للعناوين */
+}
+ion-input{
+  font-size: 20px; /* تكبير الخط */
+  font-weight: bold; /* جعل الخط عريض */
+  color: #dedddd6f; 
+}
+/* تحسين تنسيق حقول الإدخال */
+.add-review-card ion-item {
+  margin-bottom: 15px; /* مسافة بين الحقول */
+}
+
 
 /* زر الإغلاق */
 .close-button {
@@ -206,11 +233,19 @@ ion-button.add-comment {
 }
 
 /* نص داخل كارد إضافة التعليق */
-.add-review-card ion-card-title,
-.add-review-card ion-label,
+.add-review-card ion-card-title{
+  color: rgb(37, 12, 12);
+    
+  left: 90px;
+
+}
+.add-review-card ion-label{
+
+}
 .add-review-card ion-textarea,
 .add-review-card ion-input {
-  color: white; /* تغيير لون النص إلى أبيض */
+  color: rgb(94, 93, 93); /* تغيير لون النص إلى أبيض */
+
 }
 
 /* زر إرسال مراجعة */

@@ -101,17 +101,19 @@ export class ListPaintingPage implements OnInit {
   ngOnInit() {
     this.backendApiService.getNumLikes().subscribe((likeResult) => {
       this.likes = likeResult as Likes[];
+      console.log(this.allPainting);
       console.log(this.likes);
     });
 
     this.backendApiService.getAllPainting().subscribe((result) => {
       const allPainting = result.objectIDs;
-      for (let painting of allPainting) {
-        this.backendApiService.getAllPaintingDetails(painting).subscribe((paintingResult) => {
+      console.log(result);
+      for (let i=0;i<100;i++) {
+        this.backendApiService.getAllPaintingDetails(allPainting[i]).subscribe((paintingResult) => {
           if (paintingResult.message !== "Not a valid object") {
             let paintingLike = this.likes.find(like => like.item_id == paintingResult.objectID);
             let paint: Painting = {
-              objectID: painting,
+              objectID: allPainting[i],
               title: paintingResult.title,
               image: paintingResult.primaryImage,
               artistName: paintingResult.artistDisplayName,
@@ -128,16 +130,17 @@ export class ListPaintingPage implements OnInit {
       }
     });
   }
-  toggleLike(objectID: number) {
-    let painting = this.allPainting.find(p => p.objectID === objectID);
+  toggleLike(paint: Painting) {
+    let painting = this.allPainting.find(p => p.objectID == paint.objectID);
     if (painting) {
       painting.isLiked = !painting.isLiked;
-      //painting.like = painting.isLiked ? (painting.like || 0) + 1 : (painting.like || 0) - 1;
+      painting.like = painting.isLiked ? (painting.like || 0) + 1 : (painting.like || 0) - 1;
       const obj = {
-        item_id: objectID
+        item_id: paint.objectID.toString()
       }
 
       this.backendApiService.addLike(obj).subscribe();
+      console.log()
         //console.log("Comment added successfully!", response);
       // }, error => {
       //   //console.error("Error adding comment", error);

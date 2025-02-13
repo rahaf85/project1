@@ -22,8 +22,9 @@ ion-toolbar.header {
 
   .footer-relative {
     //position: relative; /* يسمح للفوتر بالبقاء في أسفل الصفحة فقط */
-    width: 100%;
-    --background: #000000 ;
+    
+    padding: 8px 0;
+    --background: #191818f2 ;
     //margin-top: auto; /* يدفع الفوتر للأسفل عندما يكون المحتوى قصير */
   }
 
@@ -54,6 +55,7 @@ ion-toolbar.header {
     margin-top: 5px;
   }
     ion-content {
+      flex:1;
     --ion-background-color: #afada5be !important;
    //--ion-background-color: #dcd0a397 !important;
     padding-top: 130px;
@@ -159,7 +161,7 @@ height: 40px;
   
   .like-icon {
     font-size: 27px;
-    color: #630a07;
+    color: #4d0704;
     margin-left: 10px;
   }
   

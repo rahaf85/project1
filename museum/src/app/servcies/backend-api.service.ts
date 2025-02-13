@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { metmuseumPath } from 'src/app/servcies/URL'; // إذا كان لديك هذا الاستيراد
 
 @Injectable({
@@ -49,9 +49,9 @@ export class BackendApiService {
   }
 
   // دالة لإزالة الإعجاب
-  removeLike(paintingNumber: number): Observable<any> {
-    const body = { item_id: paintingNumber }; // إرسال رقم اللوحة فقط
-    return this.http.delete<any>('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/pKSoTbGzFhj5RtoeFQif/likes/', { body });
-  }
+  // removeLike(paintingNumber: number): Observable<any> {
+  //   const body = { item_id: paintingNumber }; // إرسال رقم اللوحة فقط
+  //   return this.http.delete<any>('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/pKSoTbGzFhj5RtoeFQif/likes/', { body });
+  // }
   
 }

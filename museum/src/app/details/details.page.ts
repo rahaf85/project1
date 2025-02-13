@@ -1,36 +1,4 @@
-/*import { Component,inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { BackendApiService } from '../servcies/backend-api.service';
-@Component({
-  selector: 'app-details',
-  templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
-  standalone: false 
-})
-export class DetailsPage implements OnInit {
-  private route = inject (ActivatedRoute);
-  private router=inject(Router);
-  private backendApiServices=inject(BackendApiService)
-  paintingNumber!:number;
-  paintingDetails!:any;
-  constructor() { }
 
-  ngOnInit() {
-    this.route.params.subscribe(param=>{
-      this.paintingNumber=param['paintingNumber'];
-    })
-    console.log(this.paintingNumber)
-
-    this.backendApiServices.getAllPaintingDetails(this.paintingNumber).subscribe({next:(painting)=>{
-    this.paintingDetails=painting;
-    console.log(this.paintingDetails)
-    },error:()=>{console.log("error")}});
-
-  }
-
-  }
-
-*/
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BackendApiService } from '../servcies/backend-api.service';
@@ -52,10 +20,10 @@ export class DetailsPage implements OnInit {
   comments: Comment[] = []; 
   showAllComments = false;
   likes: Likes[] = [];
-  // الخصائص الجديدة
-  showReviewForm: boolean = false; // لتحديد إذا كان يجب إظهار نموذج إضافة التعليق
-  reviewName: string = ''; // لتخزين اسم المستخدم
-  reviewText: string = ''; // لتخزين نص التعليق الجديد
+
+  showReviewForm: boolean = false; 
+  reviewName: string = ''; 
+  reviewText: string = ''; 
 
   constructor() { }
 
@@ -70,9 +38,7 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  /**
-   *  جلب تفاصيل اللوحة والتعليقات معًا لتقليل الطلبات المنفصلة
-   */
+  
   private fetchPaintingDetailsAndComments() {
     forkJoin({
       painting: this.backendApiService.getAllPaintingDetails(this.paintingNumber).pipe(
@@ -102,23 +68,17 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  /**
-   *  عرض أول 3 تعليقات فقط، أو جميعها عند الطلب
-   */
+ 
   get displayComments(): Comment[] {
     return this.showAllComments ? this.comments : this.comments.slice(0, 3);
   }
 
-  /**
-   *  تبديل حالة عرض جميع التعليقات
-   */
+
   toggleComments() {
     this.showAllComments = !this.showAllComments;
   }
 
-  /**
-   *  تنسيق التاريخ بطريقة أكثر أمانًا
-   */
+
   private formatDate(dateString: string | null): string {
     if (!dateString) return 'Unknown Date';
     const date = new Date(dateString);
@@ -157,6 +117,11 @@ export class DetailsPage implements OnInit {
     } else {
       console.log("Name and Comment cannot be empty!");
     }
+  }
+
+  openReviewForm() {
+    this.showReviewForm = true; 
+    this.showAllComments = false;
   }
 }
 
